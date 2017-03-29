@@ -92,8 +92,8 @@ public class JsonPipeline {
 			String keyname, Class annoClass) {
 		List<String> tokenAnnos = Lists.newArrayList();
 		for (CoreLabel token: sentence.get(TokensAnnotation.class)) {
-			system.out.println(token.getString(annoClass));
-			system.out.println(sent_info.get("truecase"));
+			System.out.println(token.getString(annoClass));
+			System.out.println(sent_info.get("truecase"));
 			tokenAnnos.add(token.getString(annoClass));
 		}
 		sent_info.put(keyname, (Object) tokenAnnos);
