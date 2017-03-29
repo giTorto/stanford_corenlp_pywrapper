@@ -53,7 +53,7 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 import edu.stanford.nlp.time.TimeAnnotations.TimexAnnotation;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
-import edu.stanford.nlp.ling.CoreAnnotations.TrueCaseAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.TrueCaseTextAnnotation;
 import org.json.XML;
 
 /** 
@@ -356,7 +356,7 @@ class edu.stanford.nlp.ling.CoreAnnotations$SentenceIndexAnnotation	1
             addSentimentJson(sent_info, sentence);
             break;
 		case "truecase":
- 			addTokenAnno(sent_info, sentence, "truecase", TrueCaseAnnotation.class);
+ 			addTokenAnno(sent_info, sentence, "truecase", TrueCaseTextAnnotation.class);
  			break;
 		case "parse":
 			addParseTree(sent_info, sentence);
