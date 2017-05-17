@@ -37,12 +37,12 @@ LOG = logging.getLogger("CoreNLP_PyWrapper")
 LOG.setLevel("INFO")
 # LOG.setLevel("DEBUG")
 
-PARSEDOC_TIMEOUT_SEC = 60 * 5
+PARSEDOC_TIMEOUT_SEC = 60 16 5
 STARTUP_BUSY_WAIT_INTERVAL_SEC = 1.0
 
 def command(mode=None, configfile=None, configdict=None, comm_mode=None,
         java_command="java",
-        java_options="-Xmx4g -XX:ParallelGCThreads=1",
+        java_options="-Xms1g -Xmx12g -XX:ParallelGCThreads=4",
         **kwargs):
     d = {}
     d.update(**locals())
