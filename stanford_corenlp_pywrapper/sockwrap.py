@@ -37,7 +37,7 @@ LOG = logging.getLogger("CoreNLP_PyWrapper")
 LOG.setLevel("INFO")
 # LOG.setLevel("DEBUG")
 
-PARSEDOC_TIMEOUT_SEC = 60 16 5
+PARSEDOC_TIMEOUT_SEC = 60 * 5
 STARTUP_BUSY_WAIT_INTERVAL_SEC = 1.0
 
 def command(mode=None, configfile=None, configdict=None, comm_mode=None,
