@@ -228,7 +228,7 @@ class CoreNLP:
         cmd = "PARSEDOC\t%s" % json.dumps(text)
         result = None
         try:
-            signal.alarm(timeout)
+            signal.alarm(int(timeout)+1)
             result = self.send_command_and_parse_result(cmd, timeout, raw=raw)
             signal.alarm(0)
         except TimeoutException:
