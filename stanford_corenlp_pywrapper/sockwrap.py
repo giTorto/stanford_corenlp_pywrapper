@@ -83,6 +83,12 @@ class SubprocessCrashed(Exception):
 
 
 class CoreNLP:
+    class TimeoutException(Exception):  # Custom exception class
+        pass
+
+
+    def timeout_handler(signum, frame):  # Custom signal handler
+        raise TimeoutException
 
     def __init__(self, mode=None, 
             configfile=None, configdict=None,
@@ -220,7 +226,15 @@ class CoreNLP:
 
     def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
         cmd = "PARSEDOC\t%s" % json.dumps(text)
-        return self.send_command_and_parse_result(cmd, timeout, raw=raw)
+        result = None
+        try:
+            signal.alarm(timeout)
+            result = self.send_command_and_parse_result(cmd, timeout, raw=raw)
+            signal.alarm(0)
+        except TimeoutException:
+            result = None
+        signal.alarm(0)
+        return result
 
     def get_socket(self, num_retries=1, retry_interval=1):
         # could be smarter here about reusing the same socket?
