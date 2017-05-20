@@ -48,7 +48,7 @@ def timeout_handler(signum, frame):  # Custom signal handler
 
 def command(mode=None, configfile=None, configdict=None, comm_mode=None,
         java_command="java",
-        java_options="-Xms1g -Xmx12g -XX:ParallelGCThreads=4",
+        java_options="-Xms1g -Xmx8g -XX:ParallelGCThreads=2",
         **kwargs):
     d = {}
     d.update(**locals())
