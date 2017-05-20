@@ -40,6 +40,13 @@ LOG.setLevel("INFO")
 PARSEDOC_TIMEOUT_SEC = 2.0
 STARTUP_BUSY_WAIT_INTERVAL_SEC = 1.0
 
+class TimeoutException(Exception):  # Custom exception class
+        pass
+
+
+    def timeout_handler(signum, frame):  # Custom signal handler
+        raise TimeoutException
+
 def command(mode=None, configfile=None, configdict=None, comm_mode=None,
         java_command="java",
         java_options="-Xms1g -Xmx12g -XX:ParallelGCThreads=4",
@@ -83,12 +90,6 @@ class SubprocessCrashed(Exception):
 
 
 class CoreNLP:
-    class TimeoutException(Exception):  # Custom exception class
-        pass
-
-
-    def timeout_handler(signum, frame):  # Custom signal handler
-        raise TimeoutException
 
     def __init__(self, mode=None, 
             configfile=None, configdict=None,
