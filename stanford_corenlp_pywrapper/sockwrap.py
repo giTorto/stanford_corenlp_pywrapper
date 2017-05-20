@@ -1,7 +1,7 @@
 """
 Client and process monitor for the java socket server.
 """
-
+import signal, random
 import subprocess, tempfile, time, os, logging, re, struct, socket, atexit, glob, itertools
 from copy import copy,deepcopy
 from pprint import pprint
