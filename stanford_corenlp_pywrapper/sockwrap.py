@@ -174,9 +174,11 @@ class CoreNLP:
         time.sleep(STARTUP_BUSY_WAIT_INTERVAL_SEC)
 
         if self.comm_mode=='SOCKET':
-            sock = self.get_socket(num_retries=100, retry_interval=STARTUP_BUSY_WAIT_INTERVAL_SEC)
+            LOG.info("Using socket command mode")
+            sock = self.get_socket(num_retries=25, retry_interval=STARTUP_BUSY_WAIT_INTERVAL_SEC)
             sock.close()
         elif self.comm_mode=='PIPE':
+            LOG.info("Using PIPE command mode")
             self.outpipe_fp = open(self.outpipe, 'rb')
 
         while True:
