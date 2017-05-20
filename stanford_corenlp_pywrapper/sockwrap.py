@@ -90,7 +90,7 @@ class CoreNLP:
                 "/home/sw/corenlp/stanford-corenlp-full-2015-04-20/*",
                 "/home/sw/stanford-srparser-2014-10-23-models.jar",
                 ),
-            comm_mode='PIPE',  # SOCKET or PIPE
+            comm_mode='SOCKET',  # SOCKET or PIPE
             server_port=12340, outpipe_filename_prefix="/tmp/corenlp_pywrap_pipe",
             **more_configdict_args
             ):
