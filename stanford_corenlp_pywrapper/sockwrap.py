@@ -41,11 +41,10 @@ PARSEDOC_TIMEOUT_SEC = 2.0
 STARTUP_BUSY_WAIT_INTERVAL_SEC = 1.0
 
 class TimeoutException(Exception):  # Custom exception class
-        pass
+    pass
 
-
-    def timeout_handler(signum, frame):  # Custom signal handler
-        raise TimeoutException
+def timeout_handler(signum, frame):  # Custom signal handler
+    raise TimeoutException
 
 def command(mode=None, configfile=None, configdict=None, comm_mode=None,
         java_command="java",
