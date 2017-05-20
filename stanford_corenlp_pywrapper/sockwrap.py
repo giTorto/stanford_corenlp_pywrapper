@@ -131,7 +131,7 @@ class CoreNLP:
             tag = "pypid=%d_time=%s" % (os.getpid(), time.time())
             self.outpipe = "%s_%s" % (outpipe_filename_prefix, tag)
             assert not os.path.exists(self.outpipe)
-
+        LOG.info("COMMAND_MODE: "+ self.comm_mode)
         assert isinstance(corenlp_jars, (list,tuple))
 
         deglobbed = itertools.chain(*[glob.glob(f) for f in corenlp_jars])
